@@ -4,7 +4,6 @@
  * ============================================================================================
  * DUMP ~ Variable Dump & Print • DEPENDENCY»
  */
-#PRINT REPORT ~ especially nice for debugging
 class oDump {
 	public static function Export($i, $capture=true){
 		return '<pre><tt>'.var_export($i, $capture).'</tt></pre>';
