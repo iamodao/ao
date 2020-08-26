@@ -10,7 +10,7 @@ class oExit {
 		$o = strtoupper($obj).'::';
 		if(!empty($msg)){$o .=' <strong>'.ucwords($msg).'</strong>';}
 		if(!empty($extra)){
-			if(is_string($extra)){$o .= ' (<small><em>'.$extra.'</em></small>)';}
+			if(is_string($extra)){$o .= ' <small><em>('.$extra.')</em></small>';}
 			else {
 				$rez['oBJECT'] = $obj;
 				$rez['oMESSAGE'] = $msg;
@@ -25,11 +25,9 @@ class oExit {
 
 	#404 EXIT - with error message
 	public static function NotFound ($path='', $msg = '',  $obj=''){
-		if(!empty($obj)){$o['oBJECT'] = $obj;} else {$o['oBJECT'] = 'oResource';}
-		if(!empty($msg)){$o['oMESSAGE'] = $msg;} else {$o['oMESSAGE'] = 'Resource Unavailable';}
-		if(!empty($path)){$o['oPATH'] = $path;}
-		oDump::Neat($o);
-		exit;
+		if(empty($obj)){$obj = 'Resource';}
+		if(empty($msg)){$msg = 'Not available';}
+		self::Now($obj, $msg, $path);
 	}
 
 }
