@@ -1,5 +1,5 @@
 NAMING CONVENTION
-==================================================
+================================================
 	class name is written as oClass | oClassName
 
 	::STATIC
@@ -13,13 +13,17 @@ NAMING CONVENTION
 	ARGUMENTS
 		$argument | $next_argument
 
+	NOTE:
+		private methods & properties have underscore at the beginning _privateMethod()
+
 	GENERIC
-		$res ~ result, resolve
+		$res ~ result | resolve
 		$tsk ~ task
 		$o ~ output
-		$i
+		$i ~
+		$a ~
 
 EXAMPLE
--------------------------------------------------
+---------------------------------------------
 oUser::FirstName($user_id);
 $oUser->firstName($user_id);
