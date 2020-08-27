@@ -1,19 +1,10 @@
 <?php
+require 'config.inc';
 require 'php/dump.inc';
 require 'php/exit.inc';
 require 'php/file.inc';
 oFile::Inc('php/json.inc');
 oFile::Inc('php/database.inc');
-
-
-
-$dba = array(
-	'host' => "localhost",
-	'user' => "zirc",
-	'password' => "ZirC",
-	'name' => "wowcatholic",
-);
-
 
 $omysqli = new oDatabase($dba);
 $ao['MySQLi'] = $omysqli->connect();
