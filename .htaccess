@@ -62,8 +62,10 @@ RewriteRule ^app\/(.*)$ /ignite.php?olink=$1&oroute=oapp [NC,QSA,END]
 
 #REWRITE - for other/virtual directory
 RewriteRule ^_ignore$ _ignore/ [NC,QSA,END]
+RewriteRule ^_ignore/$ /ignite.php?olink=_ignore [NC,QSA,END]
 RewriteRule ^_ignore/www$ _ignore/www/ [NC,QSA,END]
 RewriteRule ^orax$ orax/ [NC,QSA,END]
+RewriteRule ^orax/$ /ignite.php?olink=orax [NC,QSA,END]
 RewriteRule ^source$ source/ [NC,QSA,END]
 RewriteRule ^source/$ /ignite.php?olink=source [NC,QSA,END]
 
