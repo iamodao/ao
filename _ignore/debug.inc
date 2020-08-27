@@ -13,28 +13,28 @@ echo '<h4 style="margin:0px;">SANDBOX!</h4>';
 // $sandbox = oRouter::info();
 // oDUMP($sandbox);
 
-$dba = array(
-	'host' => "localhost",
-	'user' => "woca",
-	'password' => "woca",
-	'name' => "woca_bar",
-);
+// $dba = array(
+// 	'host' => "localhost",
+// 	'user' => "woca",
+// 	'password' => "woca",
+// 	'name' => "woca_bar",
+// );
 
-require 'orax/php/dump.inc';
-require 'orax/php/exit.inc';
-require 'orax/php/file.inc';
-oFile::Inc('orax/php/json.inc');
-oFile::Inc('orax/php/database.inc');
+// require 'orax/php/dump.inc';
+// require 'orax/php/exit.inc';
+// require 'orax/php/file.inc';
+// oFile::Inc('orax/php/json.inc');
+// oFile::Inc('orax/php/database.inc');
 
-$database = new oDatabase($dba, 'pdo');
-$dbo = $database->connect();
+// $database = new oDatabase($dba, 'pdo');
+// $dbo = $database->connect();
 
-$stmt = $dbo->prepare("CALL DrinkAll()");
-$exec = $stmt->execute();
-$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-if($exec != false && !empty($result)){
-	oJson::run($result, 'oPRINT');
-}
+// $stmt = $dbo->prepare("CALL DrinkAll()");
+// $exec = $stmt->execute();
+// $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// if($exec != false && !empty($result)){
+// 	oJson::run($result, 'oPRINT');
+// }
 
-echo oDump::Neat($result);
+echo oDump::Neat($_REQUEST);
 ?>
