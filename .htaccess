@@ -69,6 +69,12 @@ RewriteRule ^orax/$ /ignite.php?olink=orax [NC,QSA,END]
 RewriteRule ^source$ source/ [NC,QSA,END]
 RewriteRule ^source/$ /ignite.php?olink=source [NC,QSA,END]
 
+RewriteRule ^data\/(.*)$ /ignite.php?olink=$1&oroute=data [NC,QSA,END]
+
+
+#Rewrite all links to documents [routes to ignite.php]
+# RewriteRule ^(.*)$ $1.php [NC,QSA,END]
+RewriteRule ^((?!favicon.ico$)(?!favicon.png$)(?!asset\/.*$)(?!css\/.*$)(?!icon\/.*$)(?!js\/.*$)(?!cloud\/.*$)(?!data\/.*$)(?!go\/.*$)(?!api\/.*$)(?!app\/.*$)(?!_ignore\/www\/.*$).*)$ /ignite.php?olink=$1 [NC,QSA,END]
 
 
 #HTTP ERROR - error documents defined (olink to ignite.php?)
