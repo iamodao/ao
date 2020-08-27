@@ -1,1 +1,4 @@
+# Rules for GIT Ignore
+_ignore/logs/
+_ignore/www/
 config.inc
