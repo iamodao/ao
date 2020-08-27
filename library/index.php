@@ -14,7 +14,7 @@ $stmt = $dbo->prepare("CALL DrinkAll()");
 $exec = $stmt->execute();
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 if($exec != false && !empty($result)){
-	oJSON::run($result, 'oPRINT');
+	oJson::run($result, 'oPRINT');
 }
 
 echo oDump::Neat($result);
