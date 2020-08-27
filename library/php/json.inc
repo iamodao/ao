@@ -6,7 +6,7 @@
  */
 class oJSON {
 	/***** #JSON ERROR INTERPRETER *****/
-	public static function error($e, $i=''){
+	public static function Error($e, $i=''){
 		$o['JSON_INPUT'] = $i; $o['JSON_ERROR'] = $e;
 		if($e == 4){$o['JSON_ERROR_MSG'] = 'Syntax error';}
 		elseif($e == 5){$o['JSON_ERROR_MSG'] = 'Malformed UTF-8 characters, possibly incorrectly encoded';}
@@ -14,12 +14,12 @@ class oJSON {
 	}
 
 	#PERFORM JSON OPERATIONS (encode, decode & print)
-	public static function run($input, $i='oENCODE'){
+	public static function Run($input, $i='oENCODE'){
 		if(!empty($input)){
 			if($i == 'oENCODE'){$o = json_encode($input);}
 			elseif($i == 'oDECODE'){$o = json_decode($input);}
 			$e = json_last_error();
-			if(!empty($e)){return self::error($e, $input);}
+			if(!empty($e)){return self::Error($e, $input);}
 			elseif($i == 'oENCODE' || $i == 'oDECODE'){return $o;}
 			elseif($i == 'oPRINT'){
 				header('Content-Type: application/json');
@@ -30,15 +30,15 @@ class oJSON {
 		return;
 	}
 
-	public static function encode($input){
-		return self::run($input, $i='oENCODE');
+	public static function Encode($input){
+		return self::Run($input, $i='oENCODE');
 	}
 
-	public static function decode($input){
-		return self::run($input, $i='oDECODE');
+	public static function Decode($input){
+		return self::Run($input, $i='oDECODE');
 	}
 
-	public static function display($input){
-		return self::run($input, $i='oPRINT');
+	public static function Display($input){
+		return self::Run($input, $i='oPRINT');
 	}
 }
