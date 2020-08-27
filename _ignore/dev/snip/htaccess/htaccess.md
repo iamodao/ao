@@ -1,4 +1,11 @@
 
+RewriteCond %{HTTP_HOST} ^(?:www\.)?domain\.(com|es)$
+RewriteRule ^wp-admin https://secure.domain.%1/wp-admin/ [NC,QSA,END]
+
+
+#REWRITE - for ([sub.domain.com/VAR] → ignite.php?olink=VAR;
+RewriteCond %{HTTP_HOST} ^(.+?)(\.(.+)\.(.+))$
+RewriteRule ^((?!favicon.ico$)(?!favicon.png$)(?!asset\/.*$)(?!go\/.*$)(?!api\/.*$)(?!app\/.*$)(?!_ignore\/www\/.*$).*)$ /ignite.php?olink=$1&osd=%1 [NC,QSA,END]
 
 
 
@@ -25,18 +32,7 @@ RewriteRule ^vae\/(.*)$ index.php?route=ohttp&o403&v=$1 [NC,QSA,END]
 RewriteRule ^source\/(.*)$ source/$1 [NC,QSA,END]
 
 
-RewriteRule ^jsv\/(.*)$ index.php?route=$1&router=jsv [NC,QSA,END]
-RewriteRule ^ajax\/(.*)$ index.php?route=$1&router=ajax [NC,QSA,END]
-RewriteRule ^modal\/(.*)$ index.php?route=$1&router=modal [NC,QSA,END]
 
-
-	RewriteRule ^media\/(.*)$ source/asset/media/$1 [NC,QSA,END]
-		RewriteRule ^audio\/(.*)$ source/asset/media/$1 [NC,QSA,END]
-		RewriteRule ^video\/(.*)$ source/asset/media/$1 [NC,QSA,END]
-		RewriteRule ^document\/(.*)$ source/asset/media/$1 [NC,QSA,END]
-		RewriteRule ^image\/(.*)$ source/asset/media/$1 [NC,QSA,END]
-	RewriteRule ^plugin\/(.*)$ source/asset/plugin/$1 [NC,QSA,END]
-		RewriteRule ^font\/(.*)$ source/asset/plugin/$1 [NC,QSA,END]
 
 
 #Route (APP) ['app/VAR'] OR [app.domain.com/VAR] to index.php?route=VAR&router=app

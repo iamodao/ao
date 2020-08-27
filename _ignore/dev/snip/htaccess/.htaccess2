@@ -1,7 +1,0 @@
-RewriteCond %{HTTP_HOST} ^(?:www\.)?domain\.(com|es)$
-RewriteRule ^wp-admin https://secure.domain.%1/wp-admin/ [NC,QSA,END]
-
-
-#REWRITE - for ([sub.domain.com/VAR] → ignite.php?olink=VAR;
-RewriteCond %{HTTP_HOST} ^(.+?)(\.(.+)\.(.+))$
-RewriteRule ^((?!favicon.ico$)(?!favicon.png$)(?!asset\/.*$)(?!go\/.*$)(?!api\/.*$)(?!app\/.*$)(?!_ignore\/www\/.*$).*)$ /ignite.php?olink=$1&osd=%1 [NC,QSA,END]

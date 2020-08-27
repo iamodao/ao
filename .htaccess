@@ -60,7 +60,7 @@ RewriteRule ^go\/(.*)$ /ignite.php?oact=$1 [NC,QSA,END]
 RewriteRule ^app\/$ /ignite.php?olink=index&oroute=oapp [NC,QSA,END]
 RewriteRule ^app\/(.*)$ /ignite.php?olink=$1&oroute=oapp [NC,QSA,END]
 
-#REWRITE - for other/virtual directory
+#REWRITE - existing directory
 RewriteRule ^_ignore$ _ignore/ [NC,QSA,END]
 RewriteRule ^_ignore/$ /ignite.php?olink=_ignore [NC,QSA,END]
 RewriteRule ^_ignore/www$ _ignore/www/ [NC,QSA,END]
@@ -69,12 +69,32 @@ RewriteRule ^orax/$ /ignite.php?olink=orax [NC,QSA,END]
 RewriteRule ^source$ source/ [NC,QSA,END]
 RewriteRule ^source/$ /ignite.php?olink=source [NC,QSA,END]
 
+#REWRITE - virtual directory
 RewriteRule ^data\/(.*)$ /ignite.php?olink=$1&oroute=data [NC,QSA,END]
+
+RewriteRule ^asset\/(.*)$ source/asset/$1 [NC,QSA,END]
+	RewriteRule ^cloud\/(.*)$ source/asset/cloud/$1 [NC,QSA,END]
+	RewriteRule ^media\/(.*)$ source/asset/media/$1 [NC,QSA,END]
+	# RewriteRule ^css\/(.*)$ source/asset/script/$1 [NC,QSA,END]
+	# RewriteRule ^js\/(.*)$ source/asset/script/$1 [NC,QSA,END]
+	# RewriteRule ^font\/(.*)$ source/asset/plugin/$1 [NC,QSA,END]
+	# RewriteRule ^plugin\/(.*)$ source/asset/plugin/$1 [NC,QSA,END]
+
+# RewriteRule ^jsv\/(.*)$ index.php?route=$1&router=jsv [NC,QSA,END]
+# RewriteRule ^ajax\/(.*)$ index.php?route=$1&router=ajax [NC,QSA,END]
+# RewriteRule ^modal\/(.*)$ index.php?route=$1&router=modal [NC,QSA,END]
+
+
+		# RewriteRule ^icon\/(.*)$ source/asset/media/$1 [NC,QSA,END]
+		# RewriteRule ^audio\/(.*)$ source/asset/media/$1 [NC,QSA,END]
+		# RewriteRule ^video\/(.*)$ source/asset/media/$1 [NC,QSA,END]
+		# RewriteRule ^document\/(.*)$ source/asset/media/$1 [NC,QSA,END]
+		# RewriteRule ^image\/(.*)$ source/asset/media/$1 [NC,QSA,END]
 
 
 #Rewrite all links to documents [routes to ignite.php]
 # RewriteRule ^(.*)$ $1.php [NC,QSA,END]
-RewriteRule ^((?!favicon.ico$)(?!favicon.png$)(?!asset\/.*$)(?!css\/.*$)(?!icon\/.*$)(?!js\/.*$)(?!cloud\/.*$)(?!data\/.*$)(?!go\/.*$)(?!api\/.*$)(?!app\/.*$)(?!_ignore\/www\/.*$).*)$ /ignite.php?olink=$1 [NC,QSA,END]
+RewriteRule ^((?!api\/.*$)(?!favicon.ico$)(?!favicon.png$)(?!go\/.*$)(?!app\/.*$)(?!_ignore\/www\/.*$)(?!data\/.*$)(?!asset\/.*$).*)$ /ignite.php?olink=$1 [NC,QSA,END]
 
 
 #HTTP ERROR - error documents defined (olink to ignite.php?)
