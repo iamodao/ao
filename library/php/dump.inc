@@ -28,11 +28,15 @@ class oDump {
 					if($value === true){$o .= ' ~ oTRUE<span><br>';}
 					elseif($value === false){$o .= ' ~ oFALSE<span><br>';}
 				}
-				elseif(!is_array($value)){
-					$o .= $value.'<span><br>';
-				}
+
 				elseif(is_array($value)){
 					$o .= self::Neat($value);
+				}
+				elseif(is_object($value)){
+					$o .= self::Export($value);
+				}
+				else {
+					$o .= $value.'<span><br>';
 				}
 			}
 			$o .= '</div>';
@@ -43,10 +47,10 @@ class oDump {
 			elseif($i === false){$o .= ' ~ oFALSE<span><br>';}
 		}
 		elseif(is_object($i)){
-			$o = self::Export($i);
+			$o .= self::Export($i);
 		}
 		else {
-			$o = self::Print($i);
+			$o .= self::Print($i);
 		}
 
 		return $o;
