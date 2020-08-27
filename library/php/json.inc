@@ -2,9 +2,9 @@
 /**ORAX™ Framework is a vanilla and evolving framework for developing websites, applications, and APIs using web technology.
  * Creator: Osawere™ O. Anthony - @iamodao - www.osawere.com  © August 2020 | Apache License
  * ============================================================================================
- * oJSON ~ Summary of Class • DEPENDENCY»
+ * oJson ~ Summary of Class • DEPENDENCY»
  */
-class oJSON {
+class oJson {
 	/***** #JSON ERROR INTERPRETER *****/
 	public static function Error($e, $i=''){
 		$o['JSON_INPUT'] = $i; $o['JSON_ERROR'] = $e;
