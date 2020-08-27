@@ -5,7 +5,7 @@
  * oDatabase ~ Database Utility • DEPENDENCY»
  */
 class oDatabase {
-	public $connection;
+	private $_connection;
 	public $driver;
 	public function __construct($config,  $driver='mysqli'){
 		$this->driver = $driver;
@@ -15,7 +15,7 @@ class oDatabase {
 			} catch (PDOException $e){
 				oExit::Now('Database', 'Connection Failed', $e->getMessage());
 			}
-			$this->connection = $pdo;
+			$this->_connection = $pdo;
 		}
 
 		if($driver == 'mysqli'){
@@ -23,13 +23,13 @@ class oDatabase {
 			if ($mysqli->connect_error){
 				oExit::Now('Database', 'Connection Failed', '['.$mysqli->connect_errno.'] '.$mysqli->connect_error);
 			}
-			$this->connection = $mysqli;
+			$this->_connection = $mysqli;
 		}
 	}
 
 	#RETURN DATABASE OBJECT ~ CONNECTION
-	public function dbo(){
-		if(!empty($this->connection)){return $this->connection;}
+	public function connect(){
+		if(!empty($this->_connection)){return $this->_connection;}
 		return false;
 	}
 }
