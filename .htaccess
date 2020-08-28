@@ -70,14 +70,15 @@ RewriteRule ^source$ source/ [NC,QSA,END]
 RewriteRule ^source/$ /ignite.php?olink=source [NC,QSA,END]
 
 #REWRITE - virtual directory
-RewriteRule ^data\/(.*)$ /ignite.php?olink=$1&oroute=data [NC,QSA,END]
+RewriteRule ^data\/$ /ignite.php?olink=default&oroute=odata [NC,QSA,END]
+RewriteRule ^data\/(.*)$ /ignite.php?olink=$1&oroute=odata [NC,QSA,END]
 
 RewriteRule ^asset\/(.*)$ source/asset/$1 [NC,QSA,END]
 	RewriteRule ^cloud\/(.*)$ source/asset/cloud/$1 [NC,QSA,END]
 	RewriteRule ^media\/(.*)$ source/asset/media/$1 [NC,QSA,END]
 	# RewriteRule ^css\/(.*)$ source/asset/script/$1 [NC,QSA,END]
 	# RewriteRule ^js\/(.*)$ source/asset/script/$1 [NC,QSA,END]
-	# RewriteRule ^font\/(.*)$ source/asset/plugin/$1 [NC,QSA,END]
+	# RewriteRule ^font\/(.*)$ source/asset/plugin/$1 [NC,QSA,END
 	# RewriteRule ^plugin\/(.*)$ source/asset/plugin/$1 [NC,QSA,END]
 
 # RewriteRule ^jsv\/(.*)$ index.php?route=$1&router=jsv [NC,QSA,END]
