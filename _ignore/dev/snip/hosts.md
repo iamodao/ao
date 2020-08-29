@@ -1,3 +1,15 @@
+127.0.0.2	tonec.com
+127.0.0.2	www.tonec.com
+127.0.0.2	registeridm.com
+127.0.0.2	www.registeridm.com
+127.0.0.2	secure.registeridm.com
+127.0.0.2	internetdownloadmanager.com
+127.0.0.2	www.internetdownloadmanager.com
+127.0.0.2	secure.internetdownloadmanager.com
+127.0.0.2	mirror.internetdownloadmanager.com
+127.0.0.2	mirror2.internetdownloadmanager.com
+127.0.0.2	mirror3.internetdownloadmanager.com
+
 127.0.0.2 www.sublimetext.com
 127.0.0.2 sublimetext.com
 127.0.0.2 sublimehq.com
@@ -7,10 +19,11 @@
 0.0.0.0 license.sublimehq.com
 0.0.0.0 45.55.255.55
 0.0.0.0 45.55.41.223
-127.0.0.1                   activate.adobe.com
-127.0.0.1                   practivate.adobe.com
-127.0.0.1                   lmlicenses.wip4.adobe.com
-127.0.0.1                   lm.licenses.adobe.com
+
+127.0.0.2                   activate.adobe.com
+127.0.0.2                   practivate.adobe.com
+127.0.0.2                   lmlicenses.wip4.adobe.com
+127.0.0.2                   lm.licenses.adobe.com
 
 127.0.0.1 ao.co
 127.0.0.1 en.ao.co
