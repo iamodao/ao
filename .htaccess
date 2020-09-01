@@ -50,6 +50,15 @@ RewriteCond %{DOCUMENT_ROOT}%{REQUEST_FILENAME} !-d
 # RewriteCond %{REQUEST_URI} !.*\.phtml [NC]
 
 
+
+#REWRITE - existing directory
+RewriteRule ^_ignore$ _ignore/ [NC,QSA,END]
+RewriteRule ^_ignore/www$ _ignore/www/ [NC,QSA,END]
+RewriteRule ^orax$ orax/ [NC,QSA,END]
+RewriteRule ^source$ source/ [NC,QSA,END]
+
+
+
 #REWRITE - for api ([api/]login → ignite.php?olink=login&oroute=oapi)
 RewriteCond %{HTTP_HOST} ^(.+?)(\.(.+)\.(.+))$
 RewriteRule ^api\/$ /ignite.php?olink=index&oroute=oapi&osource=%1 [NC,QSA,END]
@@ -60,7 +69,7 @@ RewriteRule ^api\/(.*)$ /ignite.php?olink=$1&osource=%1&oroute=oapi [NC,QSA,END]
 RewriteRule ^api\/(.*)$ /ignite.php?olink=$1&osource=osite&oroute=oapi [NC,QSA,END]
 
 RewriteCond %{HTTP_HOST} ^(api\.)(.+)$
-RewriteRule ^((?!app\/.*$).*)$ /ignite.php?olink=$1&osource=api&oroute=oapi [NC,QSA,END]
+RewriteRule ^((?!app\/.*$)(?!ajax\/.*$)(?!go\/.*$).*)$ /ignite.php?olink=$1&osource=api&oroute=oapi [NC,QSA,END]
 
 
 #REWRITE - for app ([app/]login → ignite.php?olink=login&oroute=oapp)
@@ -73,13 +82,13 @@ RewriteRule ^app\/(.*)$ /ignite.php?olink=$1&osource=%1&oroute=oapp [NC,QSA,END]
 RewriteRule ^app\/(.*)$ /ignite.php?olink=$1&osource=osite&oroute=oapp [NC,QSA,END]
 
 RewriteCond %{HTTP_HOST} ^(app\.)(.+)$
-RewriteRule ^((?!api\/.*$).*)$ /ignite.php?olink=$1&osource=app&oroute=oapp [NC,QSA,END]
+RewriteRule ^((?!api\/.*$)(?!ajax\/.*$)(?!go\/.*$).*)$ /ignite.php?olink=$1&osource=app&oroute=oapp [NC,QSA,END]
 
 
 #REWRITE - for / (/login → ignite.php?olink=login&oroute=default)
 RewriteCond %{HTTP_HOST} ^(.+?)(\.(.+)\.(.+))$
-RewriteRule ^((?!api\/.*$)(?!app\/.*$)(?!favicon.ico$)(?!favicon.png$)(?!go\/.*$)(?!data\/.*$).*)$ /ignite.php?olink=$1&osource=%1&oroute=default [NC,QSA,END]
-RewriteRule ^((?!api\/.*$)(?!app\/.*$)(?!favicon.ico$)(?!favicon.png$)(?!go\/.*$)(?!data\/.*$).*)$ /ignite.php?olink=$1&osource=osite&oroute=default [NC,QSA,END]
+RewriteRule ^((?!_ignore\/www\/.*$)(?!api\/.*$)(?!app\/.*$)(?!favicon.ico$)(?!favicon.png$)(?!asset\/.*$)(?!cloud\/.*$)(?!media\/.*$)(?!icon\/.*$)(?!audio\/.*$)(?!video\/.*$)(?!document\/.*$)(?!image\/.*$)(?!plugin\/.*$)(?!font\/.*$)(?!css\/.*$)(?!js\/.*$)(?!ajax\/.*$)(?!go\/.*$).*)$ /ignite.php?olink=$1&osource=%1&oroute=default [NC,QSA,END]
+RewriteRule ^((?!_ignore\/www\/.*$)(?!api\/.*$)(?!app\/.*$)(?!favicon.ico$)(?!favicon.png$)(?!asset\/.*$)(?!cloud\/.*$)(?!media\/.*$)(?!icon\/.*$)(?!audio\/.*$)(?!video\/.*$)(?!document\/.*$)(?!image\/.*$)(?!plugin\/.*$)(?!font\/.*$)(?!css\/.*$)(?!js\/.*$)(?!ajax\/.*$)(?!go\/.*$).*)$ /ignite.php?olink=$1&osource=osite&oroute=default [NC,QSA,END]
 
 
 #REWRITE - for favicon on base-project ([favicon.ico] → /source/asset/favicon.ico)
@@ -87,49 +96,31 @@ RewriteRule ^favicon\.ico$ /source/asset/media/icon/favicon.ico [NC,QSA,END]
 RewriteRule ^favicon\.png$ /source/asset/media/icon/favicon.png [NC,QSA,END]
 
 
-#REWRITE - for action ([go/]login → ignite.php?oaction=login)
-RewriteRule ^go\/$ /ignite.php?oaction=default [NC,QSA,END]
-RewriteRule ^go\/(.*)$ /ignite.php?oaction=$1 [NC,QSA,END]
-
-RewriteRule ^data\/$ /ignite.php?odata=default [NC,QSA,END]
-RewriteRule ^data\/(.*)$ /ignite.php?odata=$1 [NC,QSA,END]
-
-
-#REWRITE - existing directory
-# RewriteRule ^_ignore$ _ignore/ [NC,QSA,END]
-# RewriteRule ^_ignore/$ /ignite.php?olink=_ignore [NC,QSA,END]
-# RewriteRule ^_ignore/www$ _ignore/www/ [NC,QSA,END]
-# RewriteRule ^orax$ orax/ [NC,QSA,END]
-# RewriteRule ^orax/$ /ignite.php?olink=orax [NC,QSA,END]
-# RewriteRule ^source$ source/ [NC,QSA,END]
-# RewriteRule ^source/$ /ignite.php?olink=source [NC,QSA,END]
-
 #REWRITE - virtual directory
+RewriteRule ^asset\/(.*)$ source/asset/$1 [NC,QSA,END]
+RewriteRule ^cloud\/(.*)$ source/asset/cloud/$1 [NC,QSA,END]
+RewriteRule ^media\/(.*)$ source/asset/media/$1 [NC,QSA,END]
+		RewriteRule ^audio\/(.*)$ source/asset/media/audio/$1 [NC,QSA,END]
+		RewriteRule ^icon\/(.*)$ source/asset/media/icon/$1 [NC,QSA,END]
+		RewriteRule ^image\/(.*)$ source/asset/media/image/$1 [NC,QSA,END]
+		RewriteRule ^video\/(.*)$ source/asset/media/video/$1 [NC,QSA,END]
+		RewriteRule ^document\/(.*)$ source/asset/media/document/$1 [NC,QSA,END]
+RewriteRule ^plugin\/(.*)$ source/asset/plugin/$1 [NC,QSA,END]
+RewriteRule ^font\/(.*)$ source/asset/plugin/$1 [NC,QSA,END]
+RewriteRule ^css\/(.*)$ source/asset/script/$1 [NC,QSA,END]
+RewriteRule ^js\/(.*)$ source/asset/script/$1 [NC,QSA,END]
 
 
-# RewriteRule ^asset\/(.*)$ source/asset/$1 [NC,QSA,END]
-	# RewriteRule ^cloud\/(.*)$ source/asset/cloud/$1 [NC,QSA,END]
-	# RewriteRule ^media\/(.*)$ source/asset/media/$1 [NC,QSA,END]
-	# RewriteRule ^css\/(.*)$ source/asset/script/$1 [NC,QSA,END]
-	# RewriteRule ^js\/(.*)$ source/asset/script/$1 [NC,QSA,END]
-	# RewriteRule ^font\/(.*)$ source/asset/plugin/$1 [NC,QSA,END
-	# RewriteRule ^plugin\/(.*)$ source/asset/plugin/$1 [NC,QSA,END]
-
-# RewriteRule ^jsv\/(.*)$ index.php?route=$1&router=jsv [NC,QSA,END]
-# RewriteRule ^ajax\/(.*)$ index.php?route=$1&router=ajax [NC,QSA,END]
-# RewriteRule ^modal\/(.*)$ index.php?route=$1&router=modal [NC,QSA,END]
+#REWRITE - for / ([ajax]/login → ignite.php?olink=login&oroute=ajax)
+RewriteCond %{HTTP_HOST} ^(.+?)(\.(.+)\.(.+))$
+RewriteRule ^ajax\/(.*)$ /ignite.php?olink=$1&osource=%1&oroute=ajax [NC,QSA,END]
+RewriteRule ^ajax\/(.*)$ /ignite.php?olink=$1&osource=osite&oroute=ajax [NC,QSA,END]
 
 
-		# RewriteRule ^icon\/(.*)$ source/asset/media/$1 [NC,QSA,END]
-		# RewriteRule ^audio\/(.*)$ source/asset/media/$1 [NC,QSA,END]
-		# RewriteRule ^video\/(.*)$ source/asset/media/$1 [NC,QSA,END]
-		# RewriteRule ^document\/(.*)$ source/asset/media/$1 [NC,QSA,END]
-		# RewriteRule ^image\/(.*)$ source/asset/media/$1 [NC,QSA,END]
-
-
-#Rewrite all links to documents [routes to ignite.php]
-# RewriteRule ^(.*)$ $1.php [NC,QSA,END]
-# RewriteRule ^((?!api\/.*$)(?!favicon.ico$)(?!favicon.png$)(?!go\/.*$)(?!data\/.*$)(?!asset\/.*$).*)$ /ignite.php?olink=$1 [NC,QSA,END]
+#REWRITE - for / ([go]/login → ignite.php?olink=login&oroute=go)
+RewriteCond %{HTTP_HOST} ^(.+?)(\.(.+)\.(.+))$
+RewriteRule ^go\/(.*)$ /ignite.php?olink=$1&osource=%1&oroute=go [NC,QSA,END]
+RewriteRule ^go\/(.*)$ /ignite.php?olink=$1&osource=osite&oroute=go [NC,QSA,END]
 
 
 #HTTP ERROR - error documents defined (olink to ignite.php?)
