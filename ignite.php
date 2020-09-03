@@ -32,7 +32,7 @@ $o_route = oRouter::Route();
 
 #HARVERST APP
 if($o_source == 'harvest'){
-	echo $oHarvest['RD'] = SOURCE.$o_source.DS;
+	$oHarvest['RD'] = SOURCE.$o_source.DS;
 	if(oFile::Is($oHarvest['RD'].$o_link.'.inc')){require ($oHarvest['RD'].$o_link.'.inc');}
 
 }
