@@ -33,6 +33,7 @@ $o_route = oRouter::Route();
 #HARVERST APP
 if($o_source == 'harvest'){
 	$oHarvest['RD'] = SOURCE.'o'.$o_source.DS;
+	oFile::Inc($oHarvest['RD'].'config.inc');
 	if(oFile::Is($oHarvest['RD'].$o_link.'.inc')){require ($oHarvest['RD'].$o_link.'.inc');}
 
 }
