@@ -97,18 +97,18 @@ RewriteRule ^favicon\.png$ /source/asset/media/icon/favicon.png [NC,QSA,END]
 
 
 #REWRITE - virtual directory
-RewriteRule ^asset\/(.*)$ source/asset/$1 [NC,QSA,END]
-RewriteRule ^cloud\/(.*)$ source/asset/cloud/$1 [NC,QSA,END]
-RewriteRule ^media\/(.*)$ source/asset/media/$1 [NC,QSA,END]
-		RewriteRule ^audio\/(.*)$ source/asset/media/audio/$1 [NC,QSA,END]
-		RewriteRule ^icon\/(.*)$ source/asset/media/icon/$1 [NC,QSA,END]
-		RewriteRule ^image\/(.*)$ source/asset/media/image/$1 [NC,QSA,END]
-		RewriteRule ^video\/(.*)$ source/asset/media/video/$1 [NC,QSA,END]
-		RewriteRule ^document\/(.*)$ source/asset/media/document/$1 [NC,QSA,END]
-RewriteRule ^plugin\/(.*)$ source/asset/plugin/$1 [NC,QSA,END]
-RewriteRule ^font\/(.*)$ source/asset/plugin/$1 [NC,QSA,END]
-RewriteRule ^css\/(.*)$ source/asset/script/$1 [NC,QSA,END]
-RewriteRule ^js\/(.*)$ source/asset/script/$1 [NC,QSA,END]
+RewriteRule ^asset\/(.*)$ /source/asset/$1 [NC,QSA,END]
+RewriteRule ^cloud\/(.*)$ /source/asset/cloud/$1 [NC,QSA,END]
+RewriteRule ^media\/(.*)$ /source/asset/media/$1 [NC,QSA,END]
+		RewriteRule ^audio\/(.*)$ /source/asset/media/audio/$1 [NC,QSA,END]
+		RewriteRule ^icon\/(.*)$ /source/asset/media/icon/$1 [NC,QSA,END]
+		RewriteRule ^image\/(.*)$ /source/asset/media/image/$1 [NC,QSA,END]
+		RewriteRule ^video\/(.*)$ /source/asset/media/video/$1 [NC,QSA,END]
+		RewriteRule ^document\/(.*)$ /source/asset/media/document/$1 [NC,QSA,END]
+RewriteRule ^plugin\/(.*)$ /source/asset/plugin/$1 [NC,QSA,END]
+RewriteRule ^font\/(.*)$ /source/asset/plugin/$1 [NC,QSA,END]
+RewriteRule ^css\/(.*)$ /source/asset/script/$1 [NC,QSA,END]
+RewriteRule ^js\/(.*)$ /source/asset/script/$1 [NC,QSA,END]
 
 
 #REWRITE - for / ([ajax]/login → ignite.php?olink=login&oroute=ajax)
