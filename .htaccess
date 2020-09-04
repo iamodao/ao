@@ -52,8 +52,8 @@ RewriteCond %{DOCUMENT_ROOT}%{REQUEST_FILENAME} !-d
 
 
 #REWRITE - existing directory
-RewriteRule ^_ignore$ _ignore/ [NC,QSA,END]
-RewriteRule ^_ignore/www$ _ignore/www/ [NC,QSA,END]
+RewriteRule ^_o$ _o/ [NC,QSA,END]
+RewriteRule ^_o/www$ _o/www/ [NC,QSA,END]
 RewriteRule ^orax$ orax/ [NC,QSA,END]
 RewriteRule ^source$ source/ [NC,QSA,END]
 
@@ -87,8 +87,8 @@ RewriteRule ^((?!api\/.*$)(?!ajax\/.*$)(?!go\/.*$).*)$ /ignite.php?olink=$1&osou
 
 #REWRITE - for / (/login → ignite.php?olink=login&oroute=default)
 RewriteCond %{HTTP_HOST} ^(.+?)(\.(.+)\.(.+))$
-RewriteRule ^((?!_ignore\/www\/.*$)(?!api\/.*$)(?!app\/.*$)(?!favicon.ico$)(?!favicon.png$)(?!asset\/.*$)(?!cloud\/.*$)(?!media\/.*$)(?!icon\/.*$)(?!audio\/.*$)(?!video\/.*$)(?!document\/.*$)(?!image\/.*$)(?!plugin\/.*$)(?!font\/.*$)(?!css\/.*$)(?!js\/.*$)(?!ajax\/.*$)(?!go\/.*$).*)$ /ignite.php?olink=$1&osource=%1&oroute=default [NC,QSA,END]
-RewriteRule ^((?!_ignore\/www\/.*$)(?!api\/.*$)(?!app\/.*$)(?!favicon.ico$)(?!favicon.png$)(?!asset\/.*$)(?!cloud\/.*$)(?!media\/.*$)(?!icon\/.*$)(?!audio\/.*$)(?!video\/.*$)(?!document\/.*$)(?!image\/.*$)(?!plugin\/.*$)(?!font\/.*$)(?!css\/.*$)(?!js\/.*$)(?!ajax\/.*$)(?!go\/.*$).*)$ /ignite.php?olink=$1&osource=osite&oroute=default [NC,QSA,END]
+RewriteRule ^((?!_o\/www\/.*$)(?!api\/.*$)(?!app\/.*$)(?!favicon.ico$)(?!favicon.png$)(?!asset\/.*$)(?!cloud\/.*$)(?!media\/.*$)(?!icon\/.*$)(?!audio\/.*$)(?!video\/.*$)(?!document\/.*$)(?!image\/.*$)(?!plugin\/.*$)(?!font\/.*$)(?!css\/.*$)(?!js\/.*$)(?!ajax\/.*$)(?!go\/.*$).*)$ /ignite.php?olink=$1&osource=%1&oroute=default [NC,QSA,END]
+RewriteRule ^((?!_o\/www\/.*$)(?!api\/.*$)(?!app\/.*$)(?!favicon.ico$)(?!favicon.png$)(?!asset\/.*$)(?!cloud\/.*$)(?!media\/.*$)(?!icon\/.*$)(?!audio\/.*$)(?!video\/.*$)(?!document\/.*$)(?!image\/.*$)(?!plugin\/.*$)(?!font\/.*$)(?!css\/.*$)(?!js\/.*$)(?!ajax\/.*$)(?!go\/.*$).*)$ /ignite.php?olink=$1&osource=osite&oroute=default [NC,QSA,END]
 
 
 #REWRITE - for favicon on base-project ([favicon.ico] → /source/asset/favicon.ico)
