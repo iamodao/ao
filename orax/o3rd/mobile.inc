@@ -1475,4 +1475,3 @@ if (
 return self::MOBILE_GRADE_C;
 }
 }
-?>
