@@ -20,26 +20,17 @@ require oPHPD.'dump.inc';
 require oPHPD.'exit.inc';
 if(!file_exists(oPHPD.'file.inc')){oExit::NotFound(oPHPD.'file.inc');}
 require oPHPD.'file.inc';
-require oPHPD.'router.inc';
+oFile::Inc(oPHPD.'router.inc');
 
-#INCLUDE OTHER [project specific] LIBRARY
-// oFile::Inc(SOURCE.'config.inc');
+#IGNITION
+$oIgnition['source'] = oRouter::Source();
+$oIgnition['route'] = oRouter::Route();
+$oIgnition['link'] = oRouter::Link();
 
-$o_source = oRouter::Source();
-$o_link = oRouter::Link();
-$o_route = oRouter::Route();
-
-
-#HARVERST APP
-if($o_source == 'harvest'){
-	$oHarvest['RD'] = SOURCE.'o'.$o_source.DS;
-	oFile::Inc($oHarvest['RD'].'config.inc');
-	if(oFile::Is($oHarvest['RD'].$o_link.'.inc')){require ($oHarvest['RD'].$o_link.'.inc');}
-
-}
-
+#INCLUDE LIBRARY
+oFile::Inc(SOURCE.'config.inc', 'isOptional');
+oFile::Inc(ROOT.'switch.inc', 'isRequired');
 
 #SANDBOX FILE - for development, demo & testing
-$o_debug_file = ROOT.'_ignore'.DS.'debug.inc';
-if(oFile::is($o_debug_file)){require $o_debug_file;}
+oFile::Inc(ROOT.'_ignore'.DS.'debug.inc', 'isOptional');
 ?>
