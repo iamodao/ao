@@ -20,11 +20,25 @@ class oFile {
 	}
 
 
-	/***** [RETURNS required -file when its valid & exist] *****/
-	public static function Inc($path=''){
+	/***** [Check file existence before include/require] *****/
+	public static function InCheck($path){
 		if(self::Is($path, 'oFILE') === false){
 			return oExit::NotFound($path);
 		}
-		return require $path; // return true;
+		return true;
+	}
+
+
+	/***** [RETURNS required -file when its valid & exist] *****/
+	public static function Inc($path, $i='isRequired'){
+		if($i == 'isRequired'){
+			self::InCheck($path);
+			return require $path;
+		}
+		else {
+			if(self::Is($path, 'oFILE') !== false){
+				return require $path;
+			}
+		}
 	}
 }
