@@ -22,11 +22,6 @@ if(!file_exists(oPHPD.'file.inc')){oExit::NotFound(oPHPD.'file.inc');}
 require oPHPD.'file.inc';
 oFile::Inc(oPHPD.'router.inc');
 
-#IGNITION
-$oIgnition['source'] = oRouter::Source();
-$oIgnition['route'] = oRouter::Route();
-$oIgnition['link'] = oRouter::Link();
-
 #INCLUDE LIBRARY
 oFile::Inc(SOURCE.'config.inc', 'isOptional');
 oFile::Inc(ROOT.'switch.inc', 'isRequired');
