@@ -20,7 +20,7 @@ class oDump {
 
 		if(is_array($i)){
 			$o .= '<em style="color:gold;">is_'.$label.'</em>';
-			$o .='<div style="margin: 0px 0 2px 6px; padding: 3px 5px 5px 10px; border-left: 1px dotted gold;"">';
+			$o .='<div style="margin: 0px 0 4px 6px; padding: 3px 5px 5px 10px; border-left: 1px dotted gold;">';
 			foreach ($i as $key => $value){
 				$o .= '<strong style="color:brown;">'.$key.': </strong>';
 				if(is_bool($value) === true){
