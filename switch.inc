@@ -5,12 +5,7 @@
  * SWITCH ~ application switch handler • DEPENDENCY»
  */
 
-global $oIgnition;
-
 #HARVERST APP
-if($oIgnition['source'] == 'harvest'){
-	echo $oHarvest['RD'] = SOURCE.'o'.$oIgnition['source'].DS;
-	// oFile::Inc($oHarvest['RD'].'config.inc');
-	#if(oFile::Is($oHarvest['RD'].$o_link.'.inc')){require $oHarvest['RD'].$o_link.'.inc';}
-}
+require(oRouter::Path('oInitFile'));
+echo oDump::Neat($aHavest);
 ?>
