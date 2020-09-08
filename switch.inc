@@ -7,5 +7,4 @@
 
 #HARVERST APP
 require(oRouter::Path('oInitFile'));
-echo oDump::Neat($aHavest);
 ?>
