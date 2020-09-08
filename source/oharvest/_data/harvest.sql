@@ -39,6 +39,32 @@ CREATE TABLE IF NOT EXISTS `harvest` (
 /*!40000 ALTER TABLE `harvest` DISABLE KEYS */;
 /*!40000 ALTER TABLE `harvest` ENABLE KEYS */;
 
+-- Dumping structure for table woca_harvestdb.user
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `auid` int(11) NOT NULL AUTO_INCREMENT,
+  `stamp` datetime DEFAULT CURRENT_TIMESTAMP,
+  `author` varchar(40) DEFAULT NULL,
+  `euid` varchar(40) DEFAULT NULL,
+  `phone` varchar(30) DEFAULT NULL,
+  `email` varchar(30) DEFAULT NULL,
+  `username` varchar(30) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
+  `type` varchar(10) DEFAULT NULL,
+  `period` datetime DEFAULT NULL,
+  `status` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`auid`),
+  UNIQUE KEY `euid` (`euid`),
+  KEY `stamp` (`stamp`),
+  KEY `author` (`author`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+
+-- Dumping data for table woca_harvestdb.user: ~0 rows (approximately)
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+REPLACE INTO `user` (`auid`, `stamp`, `author`, `euid`, `phone`, `email`, `username`, `password`, `type`, `period`, `status`) VALUES
+	(1, '2020-09-08 17:47:12', NULL, '0901', '09026636728', 'iamodao@ao.co', 'iamodao', 'openweb', 'admin', NULL, 'active');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+
 -- Dumping structure for table woca_harvestdb._sample
 DROP TABLE IF EXISTS `_sample`;
 CREATE TABLE IF NOT EXISTS `_sample` (
