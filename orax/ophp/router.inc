@@ -92,4 +92,22 @@ class oRouter {
 		return false;
 	}
 
+
+	/***** GET & SET PATH to file/dir [on this router] - returns value *****/
+	public static function Path($r= 'oInitFile', $i='oGET'){
+		if($i == 'oGET'){
+
+			#Source path
+			if($r == 'oSourcePath'){$o = SOURCE.'o'.self::Source().DS; return $o;}
+
+			#Initialization file
+			if($r == 'oInitFile'){
+				$o = self::Path('oSourcePath').'init.inc';
+				oFile::InCheck($o);
+				return $o;
+			}
+		}
+	}
+
+
 }
