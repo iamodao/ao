@@ -12,21 +12,24 @@ defined('PS') ? null : define('PS', '/');
 #DEFINE DIRECTORY
 defined('ROOT') ? null : define('ROOT', __DIR__.DS);
 defined('ORAX') ? null : define('ORAX', ROOT.'orax'.DS);
-defined('oPHPD') ? null : define('oPHPD', ORAX.'ophp'.DS);
+defined('oLIB') ? null : define('oLIB', ORAX.'ophp'.DS);
+defined('oCLASS') ? null : define('oCLASS', oLIB.'class'.DS);
+defined('oFUNC') ? null : define('oFUNC', oLIB.'function'.DS);
+defined('oBJ') ? null : define('oBJ', oLIB.'object'.DS);
 defined('SOURCE') ? null : define('SOURCE', ROOT.'source'.DS);
 
+
 #REQUIRE ESSENTIAL
-require oPHPD.'dump.inc';
-require oPHPD.'exit.inc';
-if(!file_exists(oPHPD.'file.inc')){oExit::NotFound(oPHPD.'file.inc');}
-require oPHPD.'file.inc';
-oFile::Inc(oPHPD.'router.inc');
+require oCLASS.'dump.inc';
+require oCLASS.'exit.inc';
+if(!file_exists(oCLASS.'file.inc')){oExit::NotFound(oCLASS.'file.inc');}
+require oCLASS.'file.inc';
+oFile::Inc(oCLASS.'router.inc');
 
-#INCLUDE LIBRARY
-oFile::Inc(SOURCE.'config.inc', 'isOptional');
 
-#INITIALIZE PROJECT (specific project)
+#INITIALIZE PROJECT (based on a specific project)
 require(oRouter::Path('oInitFile'));
+
 
 #SANDBOX FILE - for development, demo & testing
 oFile::Inc(ROOT.'_ignore'.DS.'debug.inc', 'isOptional');
