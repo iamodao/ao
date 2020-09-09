@@ -19,3 +19,6 @@ $aHavest['config'] = array(
 	),
 );
 /*** END PROJECT CONFIGURATION ***/
+
+
+echo oDump::Neat($aHavest);
