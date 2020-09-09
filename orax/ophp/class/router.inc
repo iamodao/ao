@@ -94,7 +94,7 @@ class oRouter {
 
 
 	/***** GET & SET PATH to file/dir [on this router] - returns value *****/
-	public static function Path($r= 'oInitFile', $i='oGET'){
+	public static function Path($r= 'oInitFile', $i='oGET', $m='isRequired'){
 		if($i == 'oGET'){
 
 			#Source path
@@ -103,7 +103,7 @@ class oRouter {
 			#Initialization file
 			if($r == 'oInitFile'){
 				$o = self::Path('oSourcePath').'init.inc';
-				oFile::InCheck($o);
+				if($m == 'isRequired'){oFile::InCheck($o);}
 				return $o;
 			}
 		}
