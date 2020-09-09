@@ -1,3 +1,4 @@
 # Rules for GIT Ignore
 _o/logs/
 _o/www/
+_o/sandbox.inc
