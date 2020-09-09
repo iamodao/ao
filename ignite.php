@@ -32,5 +32,5 @@ oFile::Inc(oRouter::Path('oInitFile', 'oGET', 'isOptional'), 'isOptional');
 
 
 #SANDBOX FILE - for development, demo & testing
-oFile::Inc(ROOT.'_o'.DS.'sandbox.inc', 'isOptional');
+oFile::Inc(ROOT.'_o'.DS.'debug.inc', 'isOptional');
 ?>
