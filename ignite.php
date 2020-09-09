@@ -24,7 +24,9 @@ oFile::Inc(oPHPD.'router.inc');
 
 #INCLUDE LIBRARY
 oFile::Inc(SOURCE.'config.inc', 'isOptional');
-oFile::Inc(ROOT.'switch.inc', 'isRequired');
+
+#INITIALIZE PROJECT (specific project)
+require(oRouter::Path('oInitFile'));
 
 #SANDBOX FILE - for development, demo & testing
 oFile::Inc(ROOT.'_ignore'.DS.'debug.inc', 'isOptional');
