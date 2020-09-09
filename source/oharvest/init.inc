@@ -34,4 +34,4 @@ oSession::Start();
 $oApp = new HarvestApp($aHavest);
 
 $debug = $oApp->Login('iam', 'oweb');
-echo oDump::Neat($debug);
+oJson::Display($debug);

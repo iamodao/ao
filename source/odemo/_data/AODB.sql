@@ -58,13 +58,23 @@ CREATE TABLE IF NOT EXISTS `user` (
   UNIQUE KEY `euid` (`euid`),
   KEY `stamp` (`stamp`),
   KEY `author` (`author`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
 -- Dumping data for table aodb.user: ~1 rows (approximately)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 REPLACE INTO `user` (`auid`, `stamp`, `author`, `euid`, `phone`, `email`, `username`, `password`, `category`, `type`, `status`, `period`) VALUES
-	(1, '2020-09-08 17:47:12', NULL, '0901', '09026636728', 'iamodao@ao.co', 'iamodao', 'openweb', NULL, 'admin', 'active', NULL);
+	(1, '2020-09-08 17:47:12', NULL, '0901', '09026636728', 'ao@ao.co', 'ao', 'oweb', NULL, 'admin', 'active', NULL),
+	(2, '2020-09-09 14:00:43', NULL, '0902', '09097996048', 'iam@ao.co', 'iam', 'oweb', NULL, 'user', 'active', NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
+
+-- Dumping structure for procedure aodb.UsersAll
+DROP PROCEDURE IF EXISTS `UsersAll`;
+DELIMITER //
+CREATE DEFINER=`woca`@`localhost` PROCEDURE `UsersAll`()
+BEGIN
+SELECT * FROM `user`;
+END//
+DELIMITER ;
 
 -- Dumping structure for table aodb._sample
 DROP TABLE IF EXISTS `_sample`;

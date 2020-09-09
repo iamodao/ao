@@ -26,9 +26,13 @@ class HarvestApp {
 
 	function Login($user_id, $password){
 		$query = "SELECT `euid` FROM `user` WHERE `username` = '{$user_id}' AND `password` = '{$password}';";
-		return $user = $this->SQL($query);
+		$user = $this->SQL($query);
 		if(!empty($user)){
-			$user = $user[0];
+			return $user;
+		// 	return $user = $user[0];
+		// 	#if(!empty($user['euid'])){
+		// 		#$
+		// }
 
 		}
 		return false;
@@ -38,5 +42,5 @@ class HarvestApp {
 	function AllUsers(){
 		return $this->SQL("CALL UsersAll()");
 	}
+
 }
-?>
