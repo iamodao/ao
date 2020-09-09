@@ -1,0 +1,13 @@
+<snippet>
+	<content><![CDATA[
+<?php
+/**ORAX™ Framework is a vanilla and evolving framework for developing websites, applications, and APIs using web technology.
+ * Creator: Osawere™ O. Anthony - @iamodao - www.osawere.com  © August 2020 | Apache License
+ * ============================================================================================
+ * ${1:INDEX} ~ Default File • DEPENDENCY»
+ */
+?>
+]]></content>
+	<tabTrigger>orax</tabTrigger>
+	<description>ORAX PHP File Block</description>
+</snippet>
