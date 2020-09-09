@@ -33,11 +33,13 @@ class oFile {
 	public static function Inc($path, $i='isRequired'){
 		if($i == 'isRequired'){
 			self::InCheck($path);
-			return require $path;
+			require $path;
+			return;
 		}
 		else {
 			if(self::Is($path, 'oFILE') !== false){
-				return require $path;
+				require $path;
+				return;
 			}
 		}
 	}
