@@ -24,6 +24,7 @@ require oCLASS.'dump.inc';
 require oCLASS.'exit.inc';
 if(!file_exists(oCLASS.'file.inc')){oExit::NotFound(oCLASS.'file.inc');}
 require oCLASS.'file.inc';
+oFile::Inc(oCLASS.'session.inc');
 oFile::Inc(oCLASS.'router.inc');
 
 
