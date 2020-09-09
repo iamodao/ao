@@ -6,10 +6,9 @@
  */
 class oDatabase {
 	private $_connection;
-	public $driver;
-	public function __construct($config,  $driver='mysqli'){
-		$this->driver = $driver;
-		if($driver == 'pdo'){
+
+	public function __construct($config,  $driver='oPDO'){
+		if($driver == 'oPDO'){
 			try {
 				$pdo = new PDO('mysql:dbname='.$config['name'].';host='.$config['host'], $config['user'], $config['password']);
 			} catch (PDOException $e){
@@ -18,7 +17,7 @@ class oDatabase {
 			$this->_connection = $pdo;
 		}
 
-		if($driver == 'mysqli'){
+		if($driver == 'oMySQLi'){
 			@$mysqli = new mysqli($config['host'], $config['user'], $config['password'], $config['name']);
 			if ($mysqli->connect_error){
 				oExit::Now('Database', 'Connection Failed', '['.$mysqli->connect_errno.'] '.$mysqli->connect_error);

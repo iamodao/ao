@@ -1,12 +1,12 @@
 <?php
-/**XENQ™ is an evolving framework for rapid & efficient development of modem responsive applications and APIs using PHP, SQL, HTML, CSS, JS & derived/relative technology
- * Originator: Osawere™ O. Anthony - @iamodao - www.osawere.com  © March 2020 | Apache License
+/**AO™ Framework is a vanilla and evolving framework for developing websites, applications, and APIs using web technology.
+ * Originator: Osawere™ O. Anthony - @iamodao - www.osawere.com  © August 2020 | Apache License
  * ============================================================================================
- * oSession ~ PHP Session • DEPENDENCY»
+ * oSession ~ Handles PHP Session • DEPENDENCY»
  */
 class oSession {
-	private static $instance;
-	protected static $name;
+	private static $Instance;
+	protected static $Name;
 
 	/***** [PREVENTS MULTIPLE INSTANCES] *****/
 	private function __construct(){return;}
@@ -15,43 +15,44 @@ class oSession {
 	private function __clone(){return;}
 
 	/***** [RETURNS SINGLE INSTANCE] *****/
-	public static function instantiate(){
-		if(is_null(self::$instance)){
-			self::$instance = new self();
+	public static function Instantiate(){
+		if(is_null(self::$Instance)){
+			self::$Instance = new self();
 		}
-		return self::$instance;
+		return self::$Instance;
 	}
 
 	/***** [START PHP SESSION] *****/
-	public static function start($name='XENQ'){
+	public static function Start($i='XENQ'){
 		if(!headers_sent() && empty($_SESSION)){
-			if(!empty($name)){
-				self::$name = $name;
-				session_name($name);
+			if(!empty($i)){
+				self::$Name = $i;
+				session_name($i);
 			}
 			else {
-				self::$name = session_name();
+				self::$Name = session_name();
 			}
 			return session_start();
 		}
 	}
 
+
 	/***** [ROLLBACK PHP SESSION -to last active session information] *****/
-	public static function rollback(){
+	public static function Rollback(){
 		if(!empty($_SESSION)){
 			return session_reset();
 		}
 	}
 
 	/***** [ABORT PHP SESSION -maintain session while discarding changes to session on current page] *****/
-	public static function abort(){
+	public static function Abort(){
 		if(!empty($_SESSION)){
 			return session_abort();
 		}
 	}
 
 	/***** [DELETE PHP SESSION -unset session or session's variable] *****/
-	public static function remove($var=''){
+	public static function Remove($var=''){
 		if(!empty($_SESSION)){
 			if(isset($_SESSION[$var])){
 				unset($_SESSION[$var]);
@@ -65,7 +66,7 @@ class oSession {
 	}
 
 	/***** [DESTROY PHP SESSION -destroys all of the data associated with the current session] *****/
-	public static function destroy(){
+	public static function Destroy(){
 		if(isset($_SESSION['session_status'])){
 			unset($_SESSION['session_status']);
 		}
@@ -73,7 +74,7 @@ class oSession {
 	}
 
 	/***** [TERMINATE PHP SESSION] *****/
-	public static function terminate(){
+	public static function Terminate(){
 		if(!empty($_SESSION)){
 			$_SESSION = array();
 			if(ini_get("session.use_cookies")){
@@ -94,11 +95,10 @@ class oSession {
 	}
 
 	/***** [TERMINATE & START FRESH PHP SESSION] *****/
-	public static function fresh($name='XENQ'){
-		self::start($name);
-		self::terminate();
-		self::start($name);
+	public static function Fresh($Name='XENQ'){
+		self::Start($Name);
+		self::Terminate();
+		self::Start($Name);
 		return;
 	}
 }
-?>

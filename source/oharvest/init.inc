@@ -21,4 +21,16 @@ $aHavest['config'] = array(
 /*** END PROJECT CONFIGURATION ***/
 
 
-echo oDump::Neat($aHavest);
+#REQUIRED LIBRARY
+oFile::Inc(oCLASS.'database.inc');
+oFile::Inc(oCLASS.'json.inc');
+
+$oAPP_SOURCE_DIR = $aHavest['config']['directory']['root'];
+oFile::Inc($oAPP_SOURCE_DIR.'program'.DS.'harvest.inc');
+
+
+#RUN APP
+$oApp = new HarvestApp($aHavest);
+
+$debug = $oApp->Login('iam', 'oweb');
+echo oDump::Neat($debug);
