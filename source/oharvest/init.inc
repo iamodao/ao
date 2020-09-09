@@ -1,22 +1,21 @@
 <?php
-//CONFIG
+/*** BEGIN PROJECT CONFIGURATION ***/
 $aHavest['config'] = array(
 	'source' => oRouter::Source(),
 	'route' => oRouter::Route(),
 	'link' => oRouter::Link(),
-	'directory' => array('root' => oRouter::Path('oSourcePath')),
+
+	#directory
+	'directory' => array(
+		'root' => oRouter::Path('oSourcePath'),
+	),
+
+	#database
+	'database' => array(
+		'name' => "aodb",
+		'user' => "ao",
+		'password' => "AO20",
+		'host' => "ao.co"
+	),
 );
-
-#database config
-$aHavest['config']['database'] = array('name' => "woca_harvestdb", 'user' => "woca", 'password' => "WOCA", 'host' => "localhost");
-
-
-#application UI
-$view = $aHavest['config']['directory']['root'].'layout'.DS.'view'.DS.$aHavest['config']['link'].'.inc';
-#oFile::InCheck($view);
-#require $view;
-
-echo oDump::Neat($aHavest);
-
-
-#API Prototype
+/*** END PROJECT CONFIGURATION ***/
