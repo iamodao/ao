@@ -15,7 +15,7 @@ $aHavest['config'] = array(
 		'name' => "aodb",
 		'user' => "ao",
 		'password' => "AO20",
-		'host' => "ao.co"
+		'host' => "ao.co",
 	),
 );
 /*** END PROJECT CONFIGURATION ***/
