@@ -30,6 +30,7 @@ oFile::Inc($oAPP_SOURCE_DIR.'program'.DS.'harvest.inc');
 
 
 #RUN APP
+oSession::Start();
 $oApp = new HarvestApp($aHavest);
 
 $debug = $oApp->Login('iam', 'oweb');
