@@ -15,3 +15,45 @@
 AO™ Framework is a web framework which intentionally aims to be native and extremely flexible in helping you swiftly write simple but powerful code for your application and API. AO™ is an evolving micro-framework (library) for developing modem responsive static or dynamic website, database driven web applications, prototyping, APIs, and other web services quickly yet efficiently using PHP, SQL (MySQL), HTML, CSS, JS & derived/relative technology while maintaining a small footprint and respecting the developer’s workflow.
 
 AO Framework is a free and open-source, Apache licensed project maintaining vanilla languages combined with clean code separation using a derivative of Model–view–controller architecture.
+
+---
+
+#### NOTE:
+If configuration [config.php OR/AND $initConfig array] is not created, AO framework will assume certain defaults
+
+---
+
+#### Example Code
+```php
+	<?php
+		$demo = 'DEV5 SandBox';
+		$AO->dump($demo);
+	?>
+```
+
+
+
+### DIRECTORY STRUCTURE
+_The basic directory structure of the framework_
+
+*	_ignore
+	*	dev5
+		*	code
+		*	docs
+		*	index.php `[developer sandbox]`
+	*	storage
+* orax
+* source
+	*	asset
+	*	drive
+	*	layout
+		*	bit
+		*	skin
+		*	view
+	*	module
+		*	api
+		*	app
+		*	site
+	*	config.php
+* .htaccess
+* index.php
