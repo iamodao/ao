@@ -28,9 +28,9 @@ oFile::Inc(oCLASS.'router.inc');
 
 
 #INITIALIZE PROJECT (based on a specific project)
-// require(oRouter::Path('oInitFile'));
+oFile::Inc(oRouter::Path('oInitFile', 'oGET', 'isOptional'), 'isOptional');
 
 
 #SANDBOX FILE - for development, demo & testing
-oFile::Inc(ROOT.'_ignore'.DS.'debug.inc', 'isOptional');
+oFile::Inc(ROOT.'_o'.DS.'debug.inc', 'isOptional');
 ?>
