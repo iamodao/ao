@@ -27,3 +27,6 @@ EXAMPLE
 ---------------------------------------------
 oUser::FirstName($user_id);
 $oUser->firstName($user_id);
+
+
+	#REDIRECT → redirect user login {}
