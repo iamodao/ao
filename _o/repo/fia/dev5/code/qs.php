@@ -11,20 +11,7 @@ defined('PS') ? null : define('PS', '/');
 
 /** Begin UTILITY functions **/
 
-// perfoms empty check on a variable
-function isEmpty($data=''){
-	if(!isset($data)){return TRUE;}
-	else {
-		if(is_array($data)){
-			if(empty($data)){return TRUE;}
-		} else {
-			$data = trim($data);
-			$length = strlen($data);
-			if($length<1){return TRUE;}
-		}
-	}
-	return FALSE;
-}
+
 
 // check if file exists
 function isFile($content=''){
