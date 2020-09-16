@@ -6,9 +6,60 @@
  */
 class oDump {
 
-
-	//METHOD • Describe method
+	//EXPORT • Describe method
 	public static function Export($i, $capture=true){
 		return '<pre><tt>'.var_export($i, $capture).'</tt></pre>';
 	}
-}
+
+
+	//PRINT • Describe method
+	public static function Print($i, $capture=true){
+		return print_r($i, $capture);
+	}
+
+
+	//NEAT • Describe method
+	public static function Neat($i){
+		$o = '';
+		if(is_array($i)){$label = 'array';}
+		elseif(is_bool($i) === true){$label = 'boolean';}
+
+		if(is_array($i)){
+			$o .= '<em style="color:gold;">is_'.$label.'</em>';
+			$o .='<div style="margin: 0px 0 4px 6px; padding: 3px 5px 5px 10px; border-left: 1px dotted gold;">';
+			foreach ($i as $key => $value){
+				$o .= '<strong style="color:brown;">'.$key.': </strong>';
+				if(is_bool($value) === true){
+					$o .= '<em style="color:gold;">is_boolean</em>';
+					if($value === true){$o .= ' ~ oTRUE<span><br>';}
+					elseif($value === false){$o .= ' ~ oFALSE<span><br>';}
+				}
+
+				elseif(is_array($value)){
+					$o .= self::Neat($value);
+				}
+				elseif(is_object($value)){
+					$o .= self::Export($value);
+				}
+				else {
+					$o .= $value.'<span><br>';
+				}
+			}
+			$o .= '</div>';
+		}
+		elseif(is_bool($i) === true){
+			$o .= '<em style="color:gold;">is_'.$label.'</em>';
+			if($i === true){$o .= ' ~ oTRUE<span><br>';}
+			elseif($i === false){$o .= ' ~ oFALSE<span><br>';}
+		}
+		elseif(is_object($i)){
+			$o .= self::Export($i);
+		}
+		else {
+			$o .= self::Print($i);
+		}
+
+		return $o;
+	}
+
+} // EndOfClass - oDump
