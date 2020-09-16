@@ -25,7 +25,8 @@ class ${1:oClass} {
 
 	//${4:METHOD • ${5:Describe method}}
 	public static function ${6:FuncName}(${7:}){${8:}${9:return;}}
-}
+
+} // EndOfClass - ${1:oClass}
 ]]></content>
 	<tabTrigger>aoclass</tabTrigger>
 	<description>AO PHP Class (Static) Block</description>
