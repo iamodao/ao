@@ -91,21 +91,6 @@ class oKit {
 }
 
 
-//-------------- Check if variable is actually empty ---------------
-function isEmpty($data=''){
-	if(!isset($data)){return true;}
-	else {
-		if(is_array($data)){
-			if(empty($data)){return true;}
-		} else {
-			$data = trim($data);
-			$length = strlen($data);
-			if($length<1){return true;}
-		}
-	}
-
-	return false;
-}
 
 
 //-------------- Check if array is multi-dimensional ---------------

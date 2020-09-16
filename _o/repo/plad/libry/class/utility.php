@@ -44,20 +44,7 @@ class oUtil {
 		return false;
 	}
 
-	/***** [CHECK IF INPUT IS REALLY EMPTY] *****/
-	public static function isEmpty($input=''){
-		if(!isset($input)){return true;}
-		else {
-			if(is_array($input)){
-				if(empty($input)){return true;}
-			} else {
-				$input = trim($input);
-				$length = strlen($input);
-				if($length < 1){return true;}
-			}
-		}
-		return false;
-	}
+
 
 	/***** [SET & RETURN LANG] *****/
 	public static function lang($lang=''){
