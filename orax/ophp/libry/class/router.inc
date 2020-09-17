@@ -31,7 +31,7 @@ class oRouter {
 
 
 	/***** CHECK IF APP route EXISTS OR FALSE *****/
-	public static function IsAPP((){
+	public static function IsAPP(){
 		if(!empty($_GET['oroute']) && $_GET['oroute'] == 'oapp'){
 			return true;
 		}
