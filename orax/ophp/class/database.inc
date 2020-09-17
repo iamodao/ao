@@ -1,6 +1,6 @@
 <?php
-/**ORAX™ Framework is a vanilla and evolving framework for developing websites, applications, and APIs using web technology.
- * Creator: Osawere™ O. Anthony - @iamodao - www.osawere.com  © August 2020 | Apache License
+/**AO™ Library is a vanilla and evolving framework for developing websites, applications, and APIs using web technology.
+ * Originator: Anthony O. Osawere - @iamodao - www.osawere.com  © 2020 | Apache License
  * ============================================================================================
  * oDatabase ~ Database Utility • DEPENDENCY»
  */
@@ -26,9 +26,12 @@ class oDatabase {
 		}
 	}
 
-	#RETURN DATABASE OBJECT ~ CONNECTION
-	public function connect(){
+
+	//CONNECT • RETURN DATABASE OBJECT ~ CONNECTION
+	public function Connect(){
 		if(!empty($this->_connection)){return $this->_connection;}
 		return false;
 	}
-}
+
+
+} // EndOfClass - oDatabase
