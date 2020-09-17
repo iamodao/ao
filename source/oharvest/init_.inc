@@ -3,7 +3,7 @@
 $aHavest['config'] = array(
 	'source' => oRouter::Source(),
 	'route' => oRouter::Route(),
-	'link' => oRouter::Link(),
+	'link' => oRouter::URI(),
 
 	#directory
 	'directory' => array(
