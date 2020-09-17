@@ -96,7 +96,7 @@ class oRouter {
 
 			#Initialization file
 			if($r == 'oInitFile'){
-				$o = self::Path('oSourcePath').'init.inc';
+				$o = self::Path('oSourcePath').'routzr'.DS.'init.inc';
 				if($m == 'isRequired'){oFile::InCheck($o);}
 				return $o;
 			}
