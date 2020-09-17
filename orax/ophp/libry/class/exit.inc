@@ -30,4 +30,5 @@ class oExit {
 		self::Now($obj, $msg, $path);
 	}
 
+
 } // EndOfClass - oExit
