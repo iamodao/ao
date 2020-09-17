@@ -1,11 +1,13 @@
 <?php
-/**ORAX™ Framework is a vanilla and evolving framework for developing websites, applications, and APIs using web technology.
- * Creator: Osawere™ O. Anthony - @iamodao - www.osawere.com  © August 2020 | Apache License
+/**AO™ Library is a vanilla and evolving framework for developing websites, applications, and APIs using web technology.
+ * Originator: Anthony O. Osawere - @iamodao - www.osawere.com  © 2020 | Apache License
  * ============================================================================================
  * oJson ~ Summary of Class • DEPENDENCY»
  */
 class oJson {
-	/***** #JSON ERROR INTERPRETER *****/
+
+
+	//ERROR • Json error interpreter
 	public static function Error($e, $i=''){
 		$o['JSON_INPUT'] = $i; $o['JSON_ERROR'] = $e;
 		if($e == 4){$o['JSON_ERROR_MSG'] = 'Syntax error';}
@@ -41,4 +43,6 @@ class oJson {
 	public static function Display($input){
 		return self::Run($input, $i='oPRINT');
 	}
-}
+
+
+} // EndOfClass - oJson
