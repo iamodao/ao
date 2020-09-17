@@ -1,58 +1,52 @@
 <?php
-/**ORAX™ Framework is a vanilla and evolving framework for developing websites, applications, and APIs using web technology.
- * Originator: Osawere™ O. Anthony - @iamodao - www.osawere.com  © August 2020 | Apache License
- * ==== === ===== === ===== === ===== ======= ==== ========= ==== ==== ======= ======== ======== === ===
+/**AO™ Library is a vanilla and evolving framework for developing websites, applications, and APIs using web technology.
+ * Originator: Anthony O. Osawere - @iamodao - www.osawere.com  © 2020 | Apache License
+ * ============================================================================================
  * oRouter ~ Handle Routing • DEPENDENCY»
  */
 class oRouter {
-	private static $instance;
+	private static $Instance;
 
-	/***** [PREVENTS MULTIPLE INSTANCES] *****/
+	//CONSTRUCT • Prevents multiple instantiation
 	private function __construct(){return;}
 
-	/***** [PREVENTS DUPLICATES] *****/
+	//CLONE • Prevent duplicate
 	private function __clone(){return;}
 
-	/***** [RETURNS SINGLE INSTANCE] *****/
-	public static function instantiate(){
-		if(is_null(self::$instance)){
-			self::$instance = new self();
+	//INSTANTIATE • Return fresh instance
+	public static function Instantiate(){
+		if(is_null(self::$Instance)){
+			self::$Instance = new self();
 		}
-		return self::$instance;
+		return self::$Instance;
 	}
 
-
-
-	/***** CHECK IF API route EXISTS OR FALSE *****/
-	public static function is_api(){
-		if(!empty($_GET['oroute']) && $_GET['oroute'] == 'oapi'){return 'yeah';}
-		return 'nope';
+	//IsAPI • check if API route exists or false
+	public static function IsAPI(){
+		if(!empty($_GET['oroute']) && $_GET['oroute'] == 'oapi'){
+			return true;
+		}
+		return false;
 	}
+
 
 	/***** CHECK IF APP route EXISTS OR FALSE *****/
-	public static function is_app(){
-		if(!empty($_GET['oroute']) && $_GET['oroute'] == 'oapp'){return 'yeah';}
-		return 'nope';
+	public static function IsAPP(){
+		if(!empty($_GET['oroute']) && $_GET['oroute'] == 'oapp'){
+			return true;
+		}
+		return false;
 	}
 
+
 	/***** CHECK FOR SUB DOMAIN *****/
-	public static function osd(){
+	public static function OSD(){
 		if(!empty($_GET['osd'])){$o = $_GET['osd'];}
 		else {
 
 		}
 
 		return strtolower($o);
-	}
-
-
-	/***** RETURNS VALUE OF LINK *****/
-	public static function info($return=''){
-		$tsk['olink'] = self::link();
-		$tsk['oapi'] = self::is_api();
-		$tsk['oapp'] = self::is_app();
-		$tsk['osd'] = self::osd();
-		return $tsk;
 	}
 
 
@@ -70,7 +64,7 @@ class oRouter {
 
 
 	/***** GET & SET LINK - returns value of olink *****/
-	public static function Link($i='oGET'){
+	public static function URI($i='oGET'){
 		if($i == 'oGET'){
 			if(!empty($_GET['olink'])){$o = $_GET['olink'];}
 			else {$o = 'index';}
@@ -110,4 +104,14 @@ class oRouter {
 	}
 
 
-}
+	/***** RETURNS VALUE OF LINK *****/
+	public static function Info($return=''){
+		$tsk['olink'] = self::URI();
+		$tsk['oapi'] = self::IsAPI();
+		$tsk['oapp'] = self::IsAPP();
+		$tsk['osd'] = self::OSD();
+		return $tsk;
+	}
+
+
+} // EndOfClass - oRouter
