@@ -1,20 +1,22 @@
 <?php
-/**AO™ Framework is a vanilla and evolving framework for developing websites, applications, and APIs using web technology.
- * Originator: Osawere™ O. Anthony - @iamodao - www.osawere.com  © August 2020 | Apache License
+/**AO™ Library is a vanilla and evolving framework for developing websites, applications, and APIs using web technology.
+ * Originator: Anthony O. Osawere - @iamodao - www.osawere.com  © 2020 | Apache License
  * ============================================================================================
- * oSession ~ Handles PHP Session • DEPENDENCY»
+ * oSession ~ Summary of Class • DEPENDENCY»
  */
 class oSession {
 	private static $Instance;
 	protected static $Name;
 
-	/***** [PREVENTS MULTIPLE INSTANCES] *****/
+	//CONSTRUCT • Prevents multiple instantiation
 	private function __construct(){return;}
 
-	/***** [PREVENTS DUPLICATES] *****/
+
+	//CLONE • Prevent duplicate
 	private function __clone(){return;}
 
-	/***** [RETURNS SINGLE INSTANCE] *****/
+
+	//INSTANTIATE • Return fresh instance
 	public static function Instantiate(){
 		if(is_null(self::$Instance)){
 			self::$Instance = new self();
@@ -22,7 +24,8 @@ class oSession {
 		return self::$Instance;
 	}
 
-	/***** [START PHP SESSION] *****/
+
+	//START • Start php session
 	public static function Start($i='XENQ'){
 		if(!headers_sent() && empty($_SESSION)){
 			if(!empty($i)){
@@ -36,22 +39,23 @@ class oSession {
 		}
 	}
 
-
-	/***** [ROLLBACK PHP SESSION -to last active session information] *****/
+	//ROLLBACK •  rollback to last active session information
 	public static function Rollback(){
 		if(!empty($_SESSION)){
 			return session_reset();
 		}
 	}
 
-	/***** [ABORT PHP SESSION -maintain session while discarding changes to session on current page] *****/
+
+	//ABORT • ABORT PHP SESSION -maintain session while discarding changes to session on current page
 	public static function Abort(){
 		if(!empty($_SESSION)){
 			return session_abort();
 		}
 	}
 
-	/***** [DELETE PHP SESSION -unset session or session's variable] *****/
+
+	//REMOVE • DELETE PHP SESSION -unset session or session's variable
 	public static function Remove($var=''){
 		if(!empty($_SESSION)){
 			if(isset($_SESSION[$var])){
@@ -65,7 +69,8 @@ class oSession {
 		return false;
 	}
 
-	/***** [DESTROY PHP SESSION -destroys all of the data associated with the current session] *****/
+
+	//DESTROY • DESTROY PHP SESSION -destroys all of the data associated with the current session
 	public static function Destroy(){
 		if(isset($_SESSION['session_status'])){
 			unset($_SESSION['session_status']);
@@ -73,7 +78,8 @@ class oSession {
 		return session_destroy();
 	}
 
-	/***** [TERMINATE PHP SESSION] *****/
+
+	//TERMINATE • Terminate php session
 	public static function Terminate(){
 		if(!empty($_SESSION)){
 			$_SESSION = array();
@@ -94,11 +100,14 @@ class oSession {
 		}
 	}
 
-	/***** [TERMINATE & START FRESH PHP SESSION] *****/
+
+	//FRESH • Terminate & start fresh php session
 	public static function Fresh($Name='XENQ'){
 		self::Start($Name);
 		self::Terminate();
 		self::Start($Name);
 		return;
 	}
-}
+
+
+} // EndOfClass - oSession
