@@ -6,7 +6,6 @@
  */
 class oJson {
 
-
 	//ERROR • Json error interpreter
 	public static function Error($e, $i=''){
 		$o['JSON_INPUT'] = $i; $o['JSON_ERROR'] = $e;

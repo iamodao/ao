@@ -22,6 +22,7 @@ NAMING CONVENTION
 		$o ~ output
 		$i ~
 		$a ~
+		$v ~
 
 EXAMPLE
 ---------------------------------------------
@@ -53,7 +54,7 @@ API_TOKEN - [test | live]
 
 
 API RESPONSE
-	:endpoint	-	request > [request]
+	:terminus	-	request > [request]
 	:status	>	[success|failure]
 	:code > [E404]
 
